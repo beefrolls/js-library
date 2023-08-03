@@ -1,0 +1,128 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.grid-container {
+    display: grid;
+    background-color: rgb(191, 250, 255);
+    grid-template-rows: 1fr 5fr;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.lib-header {
+    display: grid;
+    gap: 10px;
+    background-color: aliceblue;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.lib-header > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left {
+    justify-content: flex-start;
+    margin-left: 30px;
+    gap: 20px;
+}
+
+.left > img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100px;
+    border: solid 1px;
+}
+
+.right {
+    justify-content: flex-end;
+    margin-right: 50px;
+}
+
+.lib-main {
+    display: grid;    
+    background-color: black;
+    width: 75%;
+    justify-self: center;
+    margin: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
+    grid-template-rows: repeat(auto-fit, 250px);
+    grid-auto-rows: 250px;
+    gap: 10px;
+    justify-content: center;
+}
+
+.book {
+    background-color: yellow;
+}
+
+
+
+
+
+
+/*Menu*/
+
+.add-book-menu {
+    height: clamp(370px, 35%, 550px);
+    width: clamp(350px ,30%, 500px);
+    background-color: blueviolet;
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+
+.add-book-menu h3 {
+    display: flex;
+    justify-content: center;
+    height: 20px;
+    margin-top: 55px;
+}
+
+form {
+    display: grid;
+    justify-content: center;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20em;
+}
+
+label {
+    display: inline-block;
+    width: 6em;
+}
+
+label[for="read-status"] {
+    width: 7em;
+}
+
+input {
+    width: 80%;
+}
+
+form p:nth-child(4) {
+    width: 50%;
+}
+
+button#confirm {
+    justify-self: center;
+    width: 8em;
+    height: 4em;
+}
