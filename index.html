@@ -25,29 +25,15 @@
         </div>
         <div class="lib-main">
             <!--Book elements are for testing only-->
+            <!--<div class="book">
+                <h3>Title</h3>
+                <p id="author">Author</p>
+                <p id="page-count">Page Count</p>
+            </div>-->
             <div class="book">
-                book
-            </div>
-            <div class="book">
-                book
-            </div>
-            <div class="book">
-                book
-            </div>
-            <div class="book">
-                book
-            </div>
-            <div class="book">
-                book
-            </div>
-            <div class="book">
-                book
-            </div>
-            <div class="book">
-                book
-            </div>
-            <div class="book">
-                book
+                <h3 class="title">LONG ASSN WEIFWHIEOFHJEIOFHWEOFqdqwdqwdwdqdwd</h3>
+                <p class="author">Author</p>
+                <p class="page-count">100</p>
             </div>
            
         </div>
@@ -63,17 +49,17 @@
         <form>
             <p>
                 <label for="title">Title:</label>
-                <input type="text" id="title" placeholder="Title">
+                <input type="text" id="title" placeholder="Title" maxlength="100" required>
             </p>
             
             <p>
                 <label for="author">Author:</label>
-                <input type="text" id="author"placeholder="Author">    
+                <input type="text" id="author"placeholder="Author" maxlength="50" required>    
             </p>
             
             <p>
                 <label for="page-count">Page Count:</label>
-                <input type="number" id="page-count" placeholder="Page Count">    
+                <input type="number" id="page-count" placeholder="1 - 2000" min="1" max="2000" required>    
             </p>
             
             <p>
