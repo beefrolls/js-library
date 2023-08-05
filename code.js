@@ -42,6 +42,7 @@ btn.addEventListener('click', function() {
 
 //Actual
 const addBookBtn = document.querySelector('#add-book');
+const delBookBtn = document.querySelector('#delete-book');
 const addBookMenu = document.querySelector('.add-book-menu');
 const confirmBookBtn = document.querySelector('#confirm');
 const bookTitle = document.querySelector('#title');
@@ -63,7 +64,6 @@ addBookBtn.addEventListener('click', function() {
     }
 })
 
-
 //This code creates an object of the book given the title, author, page count & read status. 
 confirmBookBtn.addEventListener('click', function() {
     if (bookTitle.value && bookAuthor.value && bookPageCnt.value) {
@@ -75,9 +75,9 @@ confirmBookBtn.addEventListener('click', function() {
         }
         //Adds a key-value pair for the read status
         if (bookReadStat.checked) {
-            book.read = 'yes'
+            book.read = 'Read'
         } else {
-            book.read = 'no'
+            book.read = 'Not Read'
         }
         console.log(book)
 
@@ -86,17 +86,28 @@ confirmBookBtn.addEventListener('click', function() {
         let newBookTitle = document.createElement('h3');
         let newBookAuthor = document.createElement('p');
         let newBookPgCnt = document.createElement('p');
+        let newBookRdStat = document.createElement('button');
 
 
         newBook.classList.add('book');
         newBookTitle.classList.add('title');
         newBookAuthor.classList.add('author');
         newBookPgCnt.classList.add('page-count');
+        newBookRdStat.classList.add('read-status');
+        
 
-        newBookTitle.textContent = `${book['title']}`;
+        newBookTitle.textContent = `${book['title']}`; 
         newBookAuthor.textContent = `${book['author']}`;
         newBookPgCnt.textContent = `${book['pages']}`;
+        newBookRdStat.textContent = `${book['read']}`;
+                //Adds id to read-status to provide appropriate style
+                if (newBookRdStat.textContent == 'Read') {
+                    newBookRdStat.setAttribute('id', 'read');
+                } else {
+                    newBookRdStat.setAttribute('id', 'not-read');
+                }
 
+        newBook.appendChild(newBookRdStat); 
         newBook.appendChild(newBookTitle);
         newBook.appendChild(newBookAuthor);
         newBook.appendChild(newBookPgCnt);
