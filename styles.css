@@ -44,7 +44,6 @@ body {
 .right {
     justify-content: flex-end;
     margin-right: 50px;
-    gap: 20px;
 }
 
 .lib-main {
@@ -177,27 +176,41 @@ p#page-count {
     margin-bottom: 0;
 }
 
-.book .read-status {
+.book .options {
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.options .read-status {
+    display: flex;
     justify-content: center;
-    align-self: flex-start;
+    align-items: center;
     font-size: 10px;
     width: 50px;
     height: 30px;
 }
 
-.book #read {
+.options #read {
     background-color: greenyellow;
 }
 
-.book #not-read {
+.options #not-read {
     background-color: red;
+}
+
+.book .delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    height: 30px;
+    width: 30px;
 }
 
 .book .title {
     word-break: break-all;
 }
-
-
 
 .book .author {
     align-items: flex-start;
