@@ -1,45 +1,4 @@
 
-/*Testing
-const addBook = document.querySelector('#add-book')
-const menu = document.querySelector('.add-book-menu')
-const btn = document.querySelector('#confirm');
-const title = document.querySelector('#title');
-const author = document.querySelector('#author');
-const pages = document.querySelector('#page-count');
-const read = document.querySelector('#read-status');
-const libMain = document.querySelector('.lib-main');
-
-let dispMenu = false;
-addBook.addEventListener('click', function() {
-    console.log('Hello')
-    dispMenu = !dispMenu
-    console.log(Boolean(dispMenu))
-    if (dispMenu) {
-        menu.style.display = 'grid'
-    } else {
-        menu.style.display = 'none'
-    }
-})
-
-btn.addEventListener('click', function() {
-    if (title.value && author.value && pages.value) {
-        const newBook = {
-            name: title.value,
-            writer: author.value,
-            pagenum: pages.value,
-        }
-        console.log(newBook.name)
-        console.log(typeof newBook)
-        const newDiv = document.createElement('div')
-        newDiv.textContent = `${newBook.name}, ${newBook.writer}, ${newBook.pagenum}`
-        newDiv.style.backgroundColor = 'yellow';
-        libMain.appendChild(newDiv)
-    } else {
-        console.log('Enter a title first')
-    }
-})
-*/
-
 //Actual
 const addBookBtn = document.querySelector('#add-book');
 const delBookBtn = document.querySelector('#delete-book');
@@ -51,6 +10,38 @@ const bookPageCnt = document.querySelector('#page-count');
 const bookReadStat = document.querySelector('#read-status');
 const libShelf = document.querySelector('.lib-main');
 const readStatBtn = document.querySelector('.read-status');
+const userName = document.querySelector('.left h3');
+const userImg = document.querySelector('.left img');
+const libName = document.querySelector('.center h1');
+
+
+//These codes alter the name of the library & user, and the user image
+libName.addEventListener('click', function() {
+    let newName = prompt('Enter your desired library name');
+    console.log(newName);
+    if (newName != undefined || newName != null) {
+        libName.textContent = newName;
+    } else {
+        return;
+    }
+})
+
+userName.addEventListener('click', function() {
+    let newName = prompt('Enter your name')
+    console.log(newName)
+    if (newName != undefined || newName != null) {
+        userName.textContent = newName;
+    } else {
+        return;
+    }
+})
+
+/*IMG REPLACEMENT - To be added soon
+userImg.addEventListener('click', function() {
+
+})
+*/
+
 
 //This code opens and closes the add book menu
 
@@ -67,20 +58,29 @@ addBookBtn.addEventListener('click', function() {
 
 //This code creates an object of the book given the title, author, page count & read status. 
 confirmBookBtn.addEventListener('click', function() {
+    let book = {};
     if (bookTitle.value && bookAuthor.value && bookPageCnt.value) {
-        //Creates an object with the info entered
-        const book = {
-            title: bookTitle.value,
-            author: bookAuthor.value,
-            pages: bookPageCnt.value,
-        }
-        //Adds a key-value pair for the read status
-        if (bookReadStat.checked) {
-            book.read = 'Read'
+        //Checks to see if page count inputted is within range.
+        if (bookPageCnt.value >= 1 && bookPageCnt.value <= 2000) {
+            //Creates an object with the info entered
+            book = {
+                title: bookTitle.value,
+                author: bookAuthor.value,
+                pages: bookPageCnt.value
+            }
+            //Adds a key-value pair for the read status
+            if (bookReadStat.checked) {
+                book.read = 'Read'
+            } else {
+                book.read = 'Not Read'
+            }
+            console.log(book)
         } else {
-            book.read = 'Not Read'
+            console.log('Please input a number within range');
+            return;  
         }
-        console.log(book)
+        
+
 
         //Creates an html element and adds it to the parent container for display
         let newBook = document.createElement('div');

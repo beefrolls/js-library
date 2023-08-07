@@ -1,13 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Francois+One&display=swap');
+/* font-family: 'Francois One', sans-serif; */
+
+
+html {
+    font-family: 'Francois One', sans-serif;
+}
+
 body {
     height: 100vh;
     width: 100vw;
     margin: 0;
     padding: 0;
+    background-color: #E7CEA6;
+}
+
+button {
+    font-family: 'Francois One', sans-serif;
+    border: none;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
 }
 
 .grid-container {
     display: grid;
-    background-color: rgb(191, 250, 255);
     grid-template-rows: 1fr 5fr;
     height: 100vh;
     width: 100vw;
@@ -18,7 +37,7 @@ body {
 .lib-header {
     display: grid;
     gap: 10px;
-    background-color: aliceblue;
+    background-color: white;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -41,14 +60,28 @@ body {
     border: solid 1px;
 }
 
+.left h3:hover {
+    cursor: pointer;
+    background-color: #A1C2F1;
+}
+
+.center h1:hover {
+    cursor: pointer;
+    background-color: #A1C2F1;
+}
+
 .right {
     justify-content: flex-end;
     margin-right: 50px;
 }
 
+.right #add-book {
+    height: 30px;
+    width: 35px;
+}
+
 .lib-main {
     display: grid;    
-    background-color: black;
     width: 75%;
     justify-self: center;
     margin: 50px;
@@ -59,21 +92,14 @@ body {
     justify-content: center;
 }
 
-.book {
-    background-color: yellow;
-}
-
-
-
-
-
 
 /*Menu*/
 
 .add-book-menu {
     height: clamp(370px, 35%, 550px);
     width: clamp(350px ,30%, 500px);
-    background-color: blueviolet;
+    background-color: #0A6EBD;
+    color: white;
     display: grid;
     grid-template-rows: 50px 1fr;
     position: fixed;
@@ -82,7 +108,13 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    animation-name: animate;
+    animation-duration: 0.5s;
+}
 
+@keyframes animate {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
 }
 
 .add-book-menu h3 {
@@ -117,6 +149,9 @@ input {
     width: 80%;
 }
 
+input[placeholder] {
+    font-family: 'Francois One', sans-serif;
+}
 
 form p:nth-child(4) {
     width: 50%;
@@ -124,47 +159,28 @@ form p:nth-child(4) {
 
 button#confirm {
     justify-self: center;
-    width: 8em;
-    height: 4em;
-}
-
-/* For Testing Book Elements */
-/*
-.book {
-    display: grid;
-    grid-template-rows: auto 50px 1fr;
-}
-
-.book > * {
-    width: 100%;
-    justify-content: flex-start;
-    margin-left: 20px;
-    word-wrap: break-word;
-}
-
-.book > p {
-    width: 100%;
-    padding-right: 20px;
-}
-
-.book h3 {
-    font-size: 1em;
+    font-size: x-large;
+    width: 6em;
+    height: 2em;
 }
 
 
-p#page-count {
-    justify-self: flex-end;
-    justify-content: end;
-    align-items: end;
-    padding-right: 20px;
-}
-*/
 
+/*Book*/
 .book {
     display: flex;
     flex-wrap: wrap;
     padding: 15px;
     justify-content: flex-end;
+    animation: addBook 1s;
+    background-color:#A1C2F1;
+    border: solid 5px white;
+    border-radius: 10%; 
+}
+
+@keyframes addBook {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
 }
 
 .book > * {
@@ -192,11 +208,11 @@ p#page-count {
 }
 
 .options #read {
-    background-color: greenyellow;
+    background-color: rgb(134, 255, 113);
 }
 
 .options #not-read {
-    background-color: red;
+    background-color: rgb(255, 126, 126);
 }
 
 .book .delete {
